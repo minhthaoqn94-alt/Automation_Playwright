@@ -32,5 +32,10 @@ test.describe("Edit Org Page", () => {
     await orgPage.Message("Save Success!");
     });
 
-    
-});
+  test("#2 Edit an Org can't search by name", async ({ page }) => {
+    const orgPage = new OrganizationPageList(page);
+    expect(orgPage.noDataText).toHaveCount(0);
+
+  });
+
+    });

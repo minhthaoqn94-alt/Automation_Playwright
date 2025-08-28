@@ -4,11 +4,13 @@ class OrganizationPageList {
     private readonly page: Page;
     private readonly addOrganizationBtn: Locator;
     private readonly searchByOrgNameInput: Locator;
+    public noDataText: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.addOrganizationBtn = this.page.locator('a:has(span:has-text("Add Organization"))');
         this.searchByOrgNameInput = this.page.locator('#mat-input-0');
+        this.noDataText = this.page.locator('div:has-text("No data to display")');
     }
 
     async goToOrganizationAddPage() {

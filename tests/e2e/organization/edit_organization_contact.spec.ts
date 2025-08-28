@@ -8,6 +8,7 @@ import editorganizationData from "../../data/edit_organization-data";
 import { OrganizationData_add } from "../../types/organization_add";
 import OrganizationPageList from "../../pages/organization-page-list";
 import AddContact from "../../pages/contacts-page-add";
+import ContactTabOrg from "../../pages/organization-page-contacts";
 
 test.describe("Edit Org Page", () => {
   test.describe.configure({ mode: "serial" });
@@ -17,6 +18,7 @@ test.describe("Edit Org Page", () => {
     const dashboardPage = new DashboardPage(page);
     const organizationPageList = new OrganizationPageList(page);
     const organizationPageEdit = new OrganizationPageEdit(page);
+    const contactTabOrg = new ContactTabOrg(page);
 
     await login.navigate();
     await login.login(userData.validEmail, userData.validPassword);
@@ -25,6 +27,7 @@ test.describe("Edit Org Page", () => {
     await organizationPageList.searchByOrgName("Amanda_08282025");
     await organizationPageList.goToOrganizationEditPage("Amanda_08282025");
     await organizationPageEdit.clickContactTab();
+    await contactTabOrg.goToAddContact();
     
   });
 

@@ -30,6 +30,7 @@ test.describe("Edit Org Page", () => {
 
   test("#1 Add a new contact", async ({ page }) => {
     const orgPage = new OrganizationPageEdit(page);
+    await orgPage.clickContactTab();
     const orgData = editorganizationData.testData.case1 as OrganizationData_add;
     const addContact = new AddContact(page);
     const fName = "Demo";

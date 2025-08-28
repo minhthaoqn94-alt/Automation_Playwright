@@ -5,9 +5,9 @@ export default {
   },
   testData: {
     case1: {
-      companyName: "Amanda_123",
+      companyName: "Amanda_08282025",
       locationName: "123",
-      shortName: "Amanda_123_01",
+      shortName: "Amanda_08282025_01",
       address1: "410NPN",
       address2: "",
       city: "DN",

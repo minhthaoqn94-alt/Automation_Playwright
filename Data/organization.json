@@ -1,0 +1,34 @@
+[
+  {
+    "username": "admin",
+    "password": "password123",
+    "role": "Admin Role",
+    "tab1": {
+      "name": "Org A",
+      "email": "orga@test.com",
+      "active": true,
+      "type": "partner"
+    },
+    "tab2": {
+      "address": "123 Street",
+      "city": "Hanoi",
+      "country": "VN"
+    }
+  },
+  {
+    "username": "admin",
+    "password": "password123",
+    "role": "Admin Role",
+    "tab1": {
+      "name": "Org B",
+      "email": "orgb@test.com",
+      "active": false,
+      "type": "supplier"
+    },
+    "tab2": {
+      "address": "456 Road",
+      "city": "HCMC",
+      "country": "VN"
+    }
+  }
+]

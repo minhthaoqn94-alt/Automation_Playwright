@@ -20,6 +20,7 @@ test.describe("Edit Org Page", () => {
     await login.login(userData.validEmail, userData.validPassword);
     await rolePage.choosePotentiaOwnerLevel2BPartnersRole();
     await dashboardPage.goToOrganizationPage();
+    await organizationPageList.searchByOrgName("Amanda_08252025 (Auto)");
     await organizationPageList.goToOrganizationEditPage("Amanda_08252025 (Auto)");
   });
 

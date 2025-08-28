@@ -12,6 +12,13 @@ class ChooseRole {
     }
 
     async chooseRole(roleName: string){
+        // Wait for the dropdown to be visible and attached to DOM
+        await this.roleDropdown.waitFor({ state: 'visible' });
+        await this.page.waitForLoadState('networkidle');
+        
+        // Ensure the element is enabled before clicking
+        await expect(this.roleDropdown).toBeEnabled();
+        
         await this.roleDropdown.click();
         await this.page.click(`text='${roleName}'`);
     }

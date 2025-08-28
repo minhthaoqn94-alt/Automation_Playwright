@@ -39,7 +39,7 @@ class OrganizationPageEdit {
     this.contactsTab = this.page.locator("#mat-tab-label-3-3");
     this.aboutorgTab = this.page.locator("#mat-tab-label-5-2");
     this.backButton = this.page.locator('a:has(span:has-text("Back"))');
-    this.updateButton = this.page.locator('span:has-text("Update")');
+    this.updateButton = this.page.locator('button:has(span:has-text("Update"))');
 
     this.companyNameEle = this.page.locator('[data-placeholder="Company Name"]');
     this.locationCodeEle = this.page.locator('input[name="Location Code"]');

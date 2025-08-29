@@ -14,17 +14,18 @@ test.describe("Edit Org Page", () => {
     const login = new LoginPage(page);
     const rolePage = new ChooseRole(page);
     const dashboardPage = new DashboardPage(page);
-    const organizationPageList = new OrganizationPageList(page);
-
     await login.navigate();
     await login.login(userData.validEmail, userData.validPassword);
     await rolePage.choosePotentiaOwnerLevel2BPartnersRole();
     await dashboardPage.goToOrganizationPage();
-    await organizationPageList.searchByOrgName("Amanda_123 (Auto)");
-    await organizationPageList.goToOrganizationEditPage("Amanda_123 (Auto)");
+   
   });
 
   test("#1 Edit an Org", async ({ page }) => {
+    const organizationPageList = new OrganizationPageList(page);
+    await organizationPageList.searchByOrgName("Amanda_123 (Amanda_08282025_01)");
+    await organizationPageList.goToOrganizationEditPage("Amanda_123 (Amanda_08282025_01)");
+    
     const orgPage = new OrganizationPageEdit(page);
     const orgData = editorganizationData.testData.case1 as OrganizationData_add;
     await orgPage.fillDataInInformationTab(orgData);
@@ -33,9 +34,9 @@ test.describe("Edit Org Page", () => {
     });
 
   test("#2 Edit an Org can't search by name", async ({ page }) => {
-    const orgPage = new OrganizationPageList(page);
-    expect(orgPage.noDataText).toHaveCount(0);
-
+    const organizationPageList = new OrganizationPageList(page);
+    await organizationPageList.searchByOrgName("12345");
+    await organizationPageList.checkTableNoData();
   });
 
     });

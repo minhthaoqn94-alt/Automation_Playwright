@@ -10,7 +10,7 @@ test.describe(" Sign in by code", () => {
 
     test("#1 should login successfully with valid credentials", async ({ page }) => {
         const loginPage_code = new LoginPage_Code(page);
-        const validCode = "PSAKOLPL5PQ8";
+        const validCode = "PCAOONVK5B3C";
         await loginPage_code.loginAccessCode(validCode);
         await loginPage_code.CheckLoggedInAccessCode();
     });
@@ -34,5 +34,12 @@ test.describe(" Sign in by code", () => {
         const invalidCode = " ";
         await loginPage_code.loginAccessCode(invalidCode);
         await loginPage_code.checkInvalidCredentials("The AccessCode field is required.");
+    });
+
+    test("#5 should not login with the code is expired.", async ({ page }) => {
+        const loginPage_code = new LoginPage_Code(page);
+        const validCode = "PSAKOLPL5PQ8";
+        await loginPage_code.loginAccessCode(validCode);
+        await loginPage_code.checkInvalidCredentials("Access code is expired.");
     });
 });

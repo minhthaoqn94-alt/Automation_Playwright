@@ -1,16 +1,15 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 
 class OrganizationPageList {
     private readonly page: Page;
     private readonly addOrganizationBtn: Locator;
     private readonly searchByOrgNameInput: Locator;
-    public noDataText: Locator;
+    private noDataText: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.addOrganizationBtn = this.page.locator('a:has(span:has-text("Add Organization"))');
         this.searchByOrgNameInput = this.page.locator('#mat-input-0');
-        this.noDataText = this.page.locator('div:has-text("No data to display")');
     }
 
     async goToOrganizationAddPage() {
@@ -35,6 +34,11 @@ class OrganizationPageList {
 
     async getOrgName(orgName: string) {
         const row = this.page.locator('datatable-body-row', { hasText: orgName });
+    }
+
+    async checkTableNoData() {
+        this.noDataText = this.page.locator('.empty-row:has-text("No data to display")');
+        await expect(this.noDataText).toBeVisible();
     }
 }
 

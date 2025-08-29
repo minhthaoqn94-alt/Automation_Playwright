@@ -36,8 +36,8 @@ class OrganizationPageEdit {
   constructor(page: Page) {
     this.page = page;
     this.accountingTab = this.page.locator("#mat-tab-label-0-1");
-    this.contactsTab = this.page.locator("#mat-tab-label-0-2");
-    this.aboutorgTab = this.page.locator("#mat-tab-label-5-2");
+    this.contactsTab = this.page.locator("div[role='tab']:has(div:has-text('Contacts'))");
+    this.aboutorgTab = this.page.locator("div[role='tab']:has(div:has-text('About Organization'))");
     this.backButton = this.page.locator('a:has(span:has-text("Back"))');
     this.updateButton = this.page.locator('button:has(span:has-text("Update"))');
 
